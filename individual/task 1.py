@@ -7,10 +7,12 @@
 """
 
 
+# Декоратор
 def decorator(func):
     start = " !?:;,."
 
     def wrapper(s):
+        # Замена знаков препинания
         temp = func(s)
         temp = temp.replace('?', '-')
         temp = temp.replace('!', '-')
@@ -31,6 +33,7 @@ def decorator(func):
     return wrapper
 
 
+# Главная функция
 @decorator
 def transliteration(s):
     s = s.lower()
@@ -42,8 +45,8 @@ def transliteration(s):
 
     temp = ""
 
+    # Делает транслит переданной строки
     for i in s:
-
         for v in t:
             if i == v:
                 temp += t[v]
